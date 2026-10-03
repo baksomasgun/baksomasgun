@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAKSO — Rasa yang Berkelas</title>
+<meta name="description" content="Bakso premium dengan cita rasa khas.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+
+
+:root{
+  --bg:#070707;
+  --bg2:#0d0d0d;
+  --gold:#d7aa4b;
+  --gold2:#f2ce78;
+  --text:#f5f1e8;
+  --muted:#9d9a91;
+  --line:rgba(215,170,75,.24);
+}
+
+<img src="logo.png" alt="Logo Bakso">
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text); font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:radial-gradient(circle at 50% 20%,rgba(215,170,75,.08),transparent 35%);
+}
+a{color:inherit;text-decoration:none}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 6vw; background:linear-gradient(to bottom,rgba(7,7,7,.92),transparent);
+  backdrop-filter:blur(6px);
+}
+.brand{font-family:"Cormorant Garamond",serif;font-size:25px;letter-spacing:.18em;color:var(--gold2)}
+.navlinks{display:flex;gap:30px;font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:#c7c2b7}
+.navlinks a{transition:.3s}.navlinks a:hover{color:var(--gold2)}
+.hero{
+  min-height:100vh;display:grid;place-items:center;position:relative;
+  padding:120px 7vw 70px;overflow:hidden;
+}
+.hero:after{
+  content:"";position:absolute;width:700px;height:700px;border-radius:50%;
+  border:1px solid rgba(215,170,75,.08);left:50%;top:48%;transform:translate(-50%,-50%);
+  animation:pulse 5s ease-in-out infinite;
+}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:900px}
+.logo{
+  width:min(340px,70vw);display:block;margin:0 auto 10px;
+  filter:drop-shadow(0 0 28px rgba(215,170,75,.16));
+  animation:logoIn 1.3s cubic-bezier(.2,.8,.2,1) both, float 5s ease-in-out 1.4s infinite;
+}
+.kicker{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+h1{
+  font-family:"Cormorant Garamond",serif;font-size:clamp(54px,8vw,105px);
+  font-weight:600;line-height:.85;letter-spacing:.02em;margin:18px 0;
+  background:linear-gradient(110deg,#9f7225,#f5d98a,#b9832d);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:rise 1s .25s both;
+}
+.hero p{max-width:580px;margin:auto;color:var(--muted);line-height:1.8;font-size:14px;animation:rise 1s .45s both}
+.cta{
+  display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:15px 23px;
+  border:1px solid var(--gold);border-radius:999px;color:#111;background:var(--gold);
+  font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  transition:.35s;animation:rise 1s .65s both;
+}
+.cta:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(215,170,75,.2)}
+.scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.3em;color:#777;text-transform:uppercase}
+.scroll:after{content:"";display:block;width:1px;height:35px;background:var(--gold);margin:9px auto 0;animation:scrollLine 1.8s infinite}
+
+.section{padding:110px 7vw}
+.section-head{max-width:650px;margin-bottom:55px}
+.eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.section h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,5vw,68px);font-weight:500;margin:10px 0}
+.section-head p{color:var(--muted);line-height:1.8;font-size:14px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  position:relative;min-height:300px;padding:28px;display:flex;flex-direction:column;justify-content:end;
+  border:1px solid var(--line);background:linear-gradient(145deg,#111,#090909);
+  overflow:hidden;transition:.45s;
+}
+.card:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-60px;top:-60px;background:rgba(215,170,75,.07);transition:.5s}
+.card:hover{transform:translateY(-8px);border-color:rgba(215,170,75,.65)}
+.card:hover:before{transform:scale(1.5)}
+.number{position:absolute;top:23px;left:26px;color:#5e584d;font-family:"Cormorant Garamond";font-size:22px}
+.card h3{font-family:"Cormorant Garamond";font-size:35px;font-weight:600}
+.card p{color:var(--muted);font-size:12px;line-height:1.7;margin-top:7px}
+.price{color:var(--gold2);margin-top:18px;font-size:13px;letter-spacing:.08em}
+
+.story{
+  min-height:520px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.story-art{min-height:430px;display:grid;place-items:center;position:relative}
+.story-art:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid var(--line);animation:spin 18s linear infinite}
+.story-art img{width:270px;position:relative;z-index:2;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7))}
+.story-copy p{color:var(--muted);line-height:2;font-size:14px;max-width:500px}
+
+.order{
+  text-align:center;padding:130px 7vw;position:relative;overflow:hidden;
+}
+.order:before{
+  content:"";position:absolute;inset:20% 15%;border:1px solid rgba(215,170,75,.08);
+  transform:rotate(-3deg);pointer-events:none;
+}
+.order h2{font-family:"Cormorant Garamond";font-size:clamp(50px,7vw,90px);font-weight:500}
+.order p{color:var(--muted);font-size:14px;margin:10px auto 28px;max-width:520px;line-height:1.8}
+
+footer{padding:30px 7vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#666;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(30px);transition:1s ease}
+.reveal.show{opacity:1;transform:none}
+
+@keyframes logoIn{from{opacity:0;transform:scale(.75) rotate(-5deg)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.96);opacity:.4}50%{transform:translate(-50%,-50%) scale(1.03);opacity:1}}
+@keyframes scrollLine{0%,100%{height:15px;opacity:.3}50%{height:35px;opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:750px){
+  .nav{padding:18px 5vw}.navlinks{gap:14px}.navlinks a:nth-child(2){display:none}
+  .hero{padding-top:100px}.logo{width:260px}
+  .menu{grid-template-columns:1fr}.card{min-height:250px}
+  .story{grid-template-columns:1fr;gap:20px}.story-art{min-height:330px}.story-art img{width:220px}
+  .section{padding:80px 6vw}
+  footer{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand">BAKSO MAS GUN</div>
+  <div class="navlinks">
+    <a href="#menu">Menu</a>
+    <a href="#story">Tentang</a>
+    <a href="#order">Pesan</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img class="logo" src="logo.png" alt="Logo Bakso">
+    <div class="kicker">BAKSO MAS GUN, GUN NYA APAAAA?</div>
+    <h1>Gurih. Uwenak. Nagih.</h1>
+    <p>KE CIREBON TANPA MAMPIR KESINI ATAU TANPA NYOBA BAKSO INI ADUH YA KURANG CAH.</p>
+    <a class="cta" href="#menu">Lihat Menu <span>↓</span></a>
+  </div>
+  <div class="scroll">Scroll</div>
+</header>
+
+<section class="section" id="menu">
+  <div class="section-head reveal">
+    <div class="eyebrow">MAU MAKAN APA NICCCHHHH</div>
+    <h2>Menu sederhana,<br>rasa tidak biasa.</h2>
+    <p>Diracik dengan bahan pilihan dan disajikan hangat. Pilih yang paling cocok untuk selera kamu.</p>
+  </div>
+  <div class="menu">
+    <article class="card reveal">
+      <span class="number">01</span><h3>Bakso Telur</h3>
+      <p>Bakso sapi lembut dengan kuah gurih yang hangat dengan tambahan telur.</p><div class="price">Rp 8.000</div>
+    </article>
+    <article class="card reveal">
+      <span class="number">02</span><h3>Bakso Urat</h3>
+      <p>Tekstur lebih padat dengan cita rasa sapi yang kuat.</p><div class="price">Rp 7.000</div>
+    </article>
+    <article class="card reveal">
+      <span class="number">03</span><h3>Bakso Double Urat</h3>
+      <p>Kalo mau kenyang tapi uang pas"an coba menu ini.</p><div class="price">Rp 10.000</div>
+    </article>
+    <article class="card reveal">
+      <span class="number">04</span><h3>Bakso Urat + Telur</h3>
+      <p>Bakso paket komplittttttt!.</p><div class="price">Rp. 12.000</div>
+    </article>
+    <article class="card reveal">
+      <span class="number">05</span><h3>Le Mineral</h3>
+      <p>Jangan lupa minumannya ya nanti hausss.</p><div class="price">Rp 4.000</div>
+    </article>
+  </div>
+</section>
+
+<section class="section story" id="story">
+  <div class="story-art reveal"><img src="logo.png" alt="Bakso"></div>
+  <div class="story-copy reveal">
+    <div class="eyebrow">Tentang Kami</div>
+    <h2>INFORMASI TENTANG PESANAN.</h2>
+    <p>Kami selalu buka setiap hari bersedia melayani anda, Jika pesan offline alamat kami di Desa Kebonturi Rt 01 Rw 02 Kecamatan Arjawinangun Kabupaten Cirebon, Jika ingin pesan online hubungi nomer dibawah pencet aja pesen sekarang di bawah, atau kita menyediakan grab food atau gofood cari aja yang bernama  bakso mas gun, dll.</p>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="reveal">
+    <div class="eyebrow">Siap Makan?</div>
+    <h2>Satu mangkok aja dulu.</h2>
+    <p>Pesan sekarang dan nikmati bakso hangat ala mas gun
+       <a class="cta" href="https://wa.me/6285765572963" target="_blank">Pesan Sekarang ↗</a>
+  </div>
+</section>
+
+<footer>
+  <span>© BAKSO MAS GUN</span>
+  <span>arief gunawan</span>
+</footer>
+
+<script>
+
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
